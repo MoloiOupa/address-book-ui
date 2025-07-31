@@ -1,0 +1,17 @@
+.profile-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.profile-card {
+  width: 500px;
+  margin-bottom: 20px;
+}
+
+.navigation-controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
