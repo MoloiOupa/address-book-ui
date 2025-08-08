@@ -1,21 +1,38 @@
 <div *ngIf="currentProfile" class="profile-detail">
   <mat-card class="profile-card">
-    <img mat-card-image [src]="currentProfile.profilePicture" alt="Profile Picture">
-    <mat-card-content>
-      <h2>{{ currentProfile.firstName }} {{ currentProfile.surname }}</h2>
-      <p><strong>Email:</strong> {{ currentProfile.email }}</p>
-      <p><strong>Phone:</strong> {{ currentProfile.phone }}</p>
-      <p><strong>Website:</strong> {{ currentProfile.profileWebsite }}</p>
-      <p><strong>Cover Letter:</strong> {{ currentProfile.coverLetter }}</p>
+  <div class="profile-content-row">
+    <div class="profile-image">
+      <img mat-card-image [src]="currentProfile.profilePicture" alt="Profile Picture">
+    </div>
+
+    <mat-card-content class="profile-text">
+      <div class="card-profile-content">
+        <h1>{{ currentProfile.firstName }} {{ currentProfile.surname }}</h1>
+        <p>{{ currentProfile.coverLetter }}</p>
+        <p>
+          {{ currentProfile.profileWebsite }} |
+          {{ currentProfile.email }} |
+          {{ currentProfile.phone }}
+        </p>
+      </div>
+
+      <div class="card-profile-links">
+        <a class="left-link" href="{{currentProfile.profileWebsite}}" target="_blank">Visit Website</a>
+        <a class="right-link" href="mailto:{{currentProfile.email}}">Request CV</a>
+      </div>
+
+      <div class="card-profile-buttons">
+        <button mat-button="filled" (click)="first()" [disabled]="currentIndex === 0">First</button>
+        <button mat-button="tonal" (click)="previous()" [disabled]="currentIndex === 0">Previous</button>
+        <button mat-button="tonal" (click)="next()" [disabled]="currentIndex >= profiles.length - 1">Next</button>
+        <button mat-button="filled" (click)="last()" [disabled]="currentIndex >= profiles.length - 1">Last</button>
+      </div>
     </mat-card-content>
-  </mat-card>
+  </div>
+</mat-card>
 
   <div class="navigation-controls">
-    <button mat-button (click)="first()" [disabled]="currentIndex === 0">First</button>
-    <button mat-button (click)="previous()" [disabled]="currentIndex === 0">Previous</button>
     <span>Profile {{ currentIndex + 1 }} of {{ profiles.length }}</span>
-    <button mat-button (click)="next()" [disabled]="currentIndex >= profiles.length - 1">Next</button>
-    <button mat-button (click)="last()" [disabled]="currentIndex >= profiles.length - 1">Last</button>
   </div>
 </div>
 

@@ -2,16 +2,89 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
 }
 
 .profile-card {
-  width: 500px;
-  margin-bottom: 20px;
+  width: 80%;
+  margin-bottom: 2%;
+  margin-top: 5%;
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.profile-content-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.profile-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.profile-text {
+  flex: 1;
+  margin-left: 2rem;
+}
+
+.card-profile-content {
+  margin-bottom: 1rem;
+  h1{
+    font-size: 5vh;
+  } 
+}
+
+// .card-profile-content p:first-child {
+//   display: none;
+// }
+
+.card-profile-links {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  .left-link {
+    float: left;
+  }
+  .right-link {
+    float: right;
+  }
+}
+
+.card-profile-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .navigation-controls {
   display: flex;
   gap: 10px;
   align-items: center;
+}
+
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .profile-content-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-text {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .card-profile-links,
+  .card-profile-buttons {
+    justify-content: center;
+  }
 }
